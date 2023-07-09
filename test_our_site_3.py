@@ -12,7 +12,7 @@ def get_driver():
     chrome_options = Options()
     chrome_options.add_argument("--window-size=1920,800")
     chrome_options.add_argument('--headless')
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),
                               options=chrome_options)
     driver.maximize_window()
     driver.implicitly_wait(10)
@@ -29,8 +29,8 @@ def element_click(driver,locator):
     element.click()
 
 def element_send_keys(driver,locator,text):
-element = get_element_by_id(driver,locator)
-element.send_keys(text)
+    element = get_element_by_id(driver,locator)
+    element.send_keys(text)
 
 
 driver = get_driver()
