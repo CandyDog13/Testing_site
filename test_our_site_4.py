@@ -23,21 +23,25 @@ def open_page(driver,url):
     driver.get(url)
 
 def get_element_by_id(driver,locator):
-    driver.find_element(By.ID,locator)
+    element = driver.find_element(By.ID,locator)
+    return element
 
 def element_click(driver,locator):
-    element = get_element_by_id(driver,locator)
+    element = get_element_by_id(driver=driver,locator=locator)
     element.click()
 
 def element_send_keys(driver,locator,text):
-    element = get_element_by_id(driver,locator)
-    element.send_keys(text)
+element = get_element_by_id(driver=driver,locator=locator)
+element.clear()
+element.send_keys(text)
+
+def login(driver,login,password):
+    element_send_keys(driver=driver, locator='user-name', text = login)
+    element_send_keys(driver=driver, locator='password', text = password)
+    element_click(driver=driver,locator= 'login-button')
 
 
 driver = get_driver()
 open_page(driver,URL)
-
-element_send_keys(driver,'user-name',LOGIN)
-element_send_keys(driver,'password',PASSWORD)
-
-element_click(driver,'login-button')
+login(driver=driver,login=LOGIN, password = PASSWORD)
+driver.quit()
