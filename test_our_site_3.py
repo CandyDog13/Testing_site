@@ -9,13 +9,14 @@ LOGIN = 'standard_user'
 PASSWORD = 'secret_sauce'
 
 def get_driver():
-    chrome_options = Options()
-    chrome_options.add_argument("--window-size=1920,800")
-    chrome_options.add_argument('--headless')
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),
-                              options=chrome_options)
-    driver.maximize_window()
-    driver.implicitly_wait(10)
+#    chrome_options = Options()
+#    chrome_options.add_argument("--window-size=1920,800")
+#    chrome_options.add_argument('--headless')
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+#   driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
+#                         options=chrome_options)
+#    driver.maximize_window()
+#    driver.implicitly_wait(10)
     return driver
 
 def open_page(driver,url):
