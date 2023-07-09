@@ -31,9 +31,9 @@ def element_click(driver,locator):
     element.click()
 
 def element_send_keys(driver,locator,text):
-element = get_element_by_id(driver=driver,locator=locator)
-element.clear()
-element.send_keys(text)
+    element = get_element_by_id(driver=driver,locator=locator)
+    element.clear()
+    element.send_keys(text)
 
 def login(driver,login,password):
     element_send_keys(driver=driver, locator='user-name', text = login)
